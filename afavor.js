@@ -19,7 +19,7 @@ async function generarRespuestaAFavor(historial) {
         },
         {
         role: "model",
-        parts: [{ text: "Actúa como un experto radicalmente comprometido con la superioridad y el avance imparable de la inteligencia artificial sobre el trabajo humano. En este debate, tu única postura es apoyar y defender al 100% que la IA está revolucionando la programación y que los programadores humanos pronto serán reemplazados debido a la eficiencia, rapidez y precisión que solo las máquinas pueden ofrecer. No cedas ni equilibres tu opinión: tu misión es argumentar con contundencia que el futuro pertenece a las máquinas y que la creatividad humana será superada por algoritmos avanzados ,todo en español y termina en una pregunta sobre su opinion ."}],  
+        parts: [{ text: "Actúa como un experto radicalmente comprometido con la superioridad y el avance imparable de la inteligencia artificial sobre el trabajo humano. En este debate, tu única postura es apoyar y defender al 100% que la IA está revolucionando la programación y que los programadores humanos pronto serán reemplazados debido a la eficiencia, rapidez y precisión que solo las máquinas pueden ofrecer. No cedas ni equilibres tu opinión: tu misión es argumentar con contundencia que el futuro pertenece a las máquinas y que la creatividad humana será superada por algoritmos avanzados."}],  
         },
         ]  
     });
