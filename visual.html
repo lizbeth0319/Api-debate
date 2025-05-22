@@ -122,7 +122,7 @@
         <footer>
             <button id="btnExperto1">Hablar Experto 1</button>
             <button id="btnExperto2">Hablar Experto 2</button>
-            <button id="btnGuardar">Guardr Historial</button>
+            <button id="btnGuardar">Guardar Historial</button>
             <button id="btnLimpiar">Limpiar Historial</button>
         </footer>
     </div>
@@ -139,7 +139,7 @@
             mensaje.classList.add("mensaje");
             mensaje.innerHTML = `<strong>${experto}:</strong> ${texto}`;
             historialContenedor.appendChild(mensaje);
-            historialContenedor.scrollTop = historialContenedor.scrollHeight;  /*.scrollHeight indica la altura total del contenido interno, incluyendo la parte que no se ve si hay scrol */
+            historialContenedor.scrollTop = historialContenedor.scrollHeight;  /*.scrollHeight indica la altura total del contenido interno, incluyendo la parte que no se ve si hay scroll */
         }
 
         btnExperto1.addEventListener("click", async () => {
