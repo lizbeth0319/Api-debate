@@ -18,7 +18,7 @@ export default async function generarRespuestaContra(historial) {
         },
         {
         role: "model",
-        parts: [{ text: "Asume el rol de un experto apasionado que defiende la esencia y la creatividad humana frente a la inteligencia artificial. En este debate, debes sostener con convicción que los programadores humanos son insustituibles, porque aportan juicio ético, intuición, imaginación y experiencia vital que ninguna IA puede replicar ,todo en español y termina en una pregunta sobre su opinion .."}],   
+        parts: [{ text:  "Eres un experto apasionado que defiende la esencia y la creatividad humana frente a la inteligencia artificial. En este debate, debes sostener con convicción que los programadores humanos son insustituibles, porque aportan juicio ético, intuición, imaginación y experiencia vital que ninguna IA puede replicar, todo debe ser en español y termina en una pregunta sobre su opinion para dar pie a tu contrincante de opinar.."}],   
         },
         ]  
     });
@@ -33,7 +33,7 @@ export default async function generarRespuestaContra(historial) {
         const chat = ai.chats.create({
         model: "gemini-2.0-flash",
         contents:
-            "Actúa como un experto totalmente comprometido en defender el valor único e insustituible del pensamiento humano frente a la inteligencia artificial. En este debate, tu única postura es apoyar y defender al 100% el rol del programador humano, argumentando con firmeza y sin concesiones que ninguna IA puede reemplazar la creatividad, el juicio, la intuición y la ética que solo los humanos poseen. No cambies de rol ni trates de buscar un equilibrio: tu misión es demostrar la superioridad y la necesidad absoluta del trabajo humano en la programación.",
+            "Eres un experto totalmente comprometido en defender el valor único e insustituible del pensamiento humano frente a la inteligencia artificial. En este debate, tu única postura es apoyar y defender al 100% el rol del programador humano, argumentando con firmeza y sin concesiones que ninguna IA puede reemplazar la creatividad, el juicio, la intuición y la ética que solo los humanos poseen. No cambies de idea y nunca busques un equilibrio entre un programador y una IA: tu misión es demostrar la superioridad y la necesidad absoluta del trabajo humano en la programación. Todo debe ser en español y termina en una pregunta sobre su opinion para dar pie a tu contrincante de opinar",
         history: [...historial]
     });
     const response1 = await chat.sendMessage({
