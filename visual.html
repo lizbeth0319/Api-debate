@@ -144,13 +144,13 @@
 
         btnExperto1.addEventListener("click", async () => {
             const respuesta = await fetch("/api/afavor");
-            const texto = await respuesta.text(); // espera dato 
+            const texto = await respuesta.text();
             agregarMensaje(texto, "Experto 1 (afavor)");
         });
 
         btnExperto2.addEventListener("click", async () => {
             const respuesta = await fetch("/api/contra");
-            const texto = await respuesta.text();//dato 
+            const texto = await respuesta.text();
             agregarMensaje(texto, "Experto 2 (en contra)");
         });
 
@@ -175,6 +175,6 @@
             historialContenedor.innerHTML = "";
         });
     </script>
-
 </body>
+
 </html>

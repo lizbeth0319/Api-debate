@@ -10,7 +10,7 @@ app.use(express.static("public"));
 
 let historial = [];
 
-app.get("/api/afavor", async (req, res) => {
+/* app.get("/api/afavor", async (req, res) => {
     const rta = await generarRespuestaAFavor(historial);
     console.log("impresion", rta);
     //historial.push([{ role: "user", parts: [{ text: rta }] ,experto:"afavor" }]);
@@ -22,8 +22,19 @@ app.get("/api/afavor", async (req, res) => {
         }
 
     res.json(rta);
-});
+}); */
+app.get("/api/afavor", async (req, res) => {
+    const rta = await generarRespuestaAFavor(historial);
+    console.log("impresion", rta);
 
+    if( historial.length === 0){
+        historial.push({ role: "user", parts: [{ text: rta }] ,experto:'a favor'});
+    }else{
+        historial.push({ role: "model", parts: [{ text: rta }] ,experto:'a favor'});
+    }
+ 
+    res.json(rta); // <-- se manda la respuesta al index
+});
 
 app.get("/api/contra", async (req, res) => {
     console.log("historial en http", historial);
@@ -36,15 +47,18 @@ app.get("/api/contra", async (req, res) => {
             historial.push({ role: "model", parts: [{ text: respuesta }] ,experto:'en contra'});
         }
     
-
-    res.json(respuesta);
+    res.json(respuesta);// <-- se manda la respuesta al index
 });
-
+ 
 
 app.get("/api/historial", (req, res) => {
     res.json(historial);
 });
 
+/*Limpiar el historial de conversaciones en la BD
+o Exportar la conversación a PDF
+o Eliminar una respuesta
+o Modificar una respuesta*/
 
 const PORT = process.env.PORT || 3400;
 app.listen(PORT, () => {

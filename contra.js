@@ -5,30 +5,45 @@ const ai = new GoogleGenAI({ apiKey: process.env.apiKey });
 
 export default async function generarRespuestaContra(historial) {
     console.log("en la funcion", historial);
-        
-    let history=[];
+
+    // let historys = [];
 
     if (!historial || historial.length === 0) {
-        history = [
-            { role: "user",
-            parts: [{ text: "inicia una coversacion en contra de las IA y a favor  de los programadores,"}],  }
-        ];
-    } else {
+        const chat = ai.chats.create({
+        model: "gemini-2.0-flash",
+        history: [
+        {
+        role: "user",
+        parts: [{ text: "Hola" }],
+        },
+        {
+        role: "model",
+        parts: [{ text: "Asume el rol de un experto apasionado que defiende la esencia y la creatividad humana frente a la inteligencia artificial. En este debate, debes sostener con convicción que los programadores humanos son insustituibles, porque aportan juicio ético, intuición, imaginación y experiencia vital que ninguna IA puede replicar ,todo en español y termina en una pregunta sobre su opinion .."}],   
+        },
+        ]  
+    });
+    const response1 = await chat.sendMessage({
+        message: "",
+    });
+    console.log("Chat response contra model:", response1.text);
     
-        history = [...historial];
-    }
-    const chat = ai.chats.create({
+    return response1.text;
+
+    } else {
+        const chat = ai.chats.create({
         model: "gemini-2.0-flash",
         contents:
-            "Actúa como un experto que defiende el valor del pensamiento humano frente a las IA. Usa argumentos sólidos sobre cómo la inteligencia artificial no puede reemplazar a los programadores. Estás en un debate, defiende con firmeza el rol humano.",
-        //history: history,
+            "Actúa como un experto totalmente comprometido en defender el valor único e insustituible del pensamiento humano frente a la inteligencia artificial. En este debate, tu única postura es apoyar y defender al 100% el rol del programador humano, argumentando con firmeza y sin concesiones que ninguna IA puede reemplazar la creatividad, el juicio, la intuición y la ética que solo los humanos poseen. No cambies de rol ni trates de buscar un equilibrio: tu misión es demostrar la superioridad y la necesidad absoluta del trabajo humano en la programación.",
+        history: [...historial]
     });
-
     const response1 = await chat.sendMessage({
         message: "",
     });
     console.log("Chat response contra:", response1.text);
     return response1.text;
+    }
+    
+    
 }
 
 import express from "express";
@@ -40,6 +55,7 @@ app.use(express.static("public"));
 
 export { generarRespuestaContra };
 /*
+
 import { GoogleGenAI } from "@google/genai";
 import "dotenv/config";
 
